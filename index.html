@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="app">
-	  <button v-on:click="btnClick">Click me</button>
+	  <button v-on:click="btnClick(2)">Click me</button>
 	  <p>{{ counter }}</p>
 	  <p v-on:mousemove="updateCoordinates"> Coordinate: {{ x }} / {{ y }}</p>
 	</div>
@@ -21,8 +21,8 @@
 		  	y: 0
 		  },
 		  methods: {
-			btnClick : function() {
-				this.counter++;
+			btnClick : function(step) {
+				this.counter += step;
 			},
 			updateCoordinates: function(event) {
 				this.x = event.clientX;
