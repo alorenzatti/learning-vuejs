@@ -7,5 +7,14 @@ new Vue({
         	result: function() {
         		return this.value < 37 ? "Not yet there" : "Done";
         	}
+        },
+        watch: {
+        	value: function() {
+
+        		var self = this;
+        		setTimeout(function(){
+        			self.value = 0;
+        		}, 5000);
+        	}
         }
     });
