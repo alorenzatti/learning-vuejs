@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="app">
-	  <button>Click me</button>
+	  <button v-on:click="btnClick">Click me</button>
 	  <p>{{ counter }}</p>
 	</div>
 	<script>
@@ -16,7 +16,12 @@
 			el: '#app',
 		  data: {
 		  	counter: 0
-		  }	  
+		  },
+		  methods: {
+		  	btnClick : function() {
+			  	this.counter++;
+			  }
+		  }
 		});
 	</script>
 </body>
