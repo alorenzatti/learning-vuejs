@@ -9,8 +9,10 @@
 <body>
 	<div id="app">
 	  <button v-on:click="counter++">Click me</button>
-	  <button v-on:click="counter--">Click me</button>
-	  <button v-on:click="secondCounter++">Increase second</button>
+	  <button @click="counter--">Click me</button>
+	  <button @click="secondCounter++">Increase second</button>
+	  <a v-bind:href="link">Google</a></p> 
+	  <a :href="link">Google</a></p> 
 	  <p>Counter: {{ counter }} | {{ secondCounter }}</p>
 	  <p>Result: {{ result() }} | {{ output }}</p>
 	</div>
@@ -19,7 +21,8 @@
 			el: '#app',
 		  data: {
 		  	counter: 0,
-		  	secondCounter: 0
+		  	secondCounter: 0,
+		  	link: 'http://google.com'
 		  },
 		  computed: {
 		  	output: function() {
