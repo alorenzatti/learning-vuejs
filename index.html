@@ -8,27 +8,21 @@
 </head>
 <body>
 	<div id="app">
-	  <button v-on:click="btnClick">Click me</button>
-	  <button v-on:click="decrease">Click me</button>
+	  <button v-on:click="counter++">Click me</button>
+	  <button v-on:click="counter--">Click me</button>
 	  <p>Counter: {{ counter }}</p>
-	  <p>Result: {{ result }}</p>
+	  <p>Result: {{ result() }}</p>
 	</div>
 	<script>
 		new Vue({
 			el: '#app',
 		  data: {
-		  	counter: 0,
-		  	result: ''
+		  	counter: 0
 		  },
 		  methods: {
-		  	btnClick : function() {
-			  	this.counter++;
-			  	this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
-			  },
-			decrease : function() {
-				this.counter--;
-				this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
-			}
+		  	result() {
+		  		return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+		  	}
 		  }
 		});
 	</script>
