@@ -12,30 +12,15 @@
 			margin: 10px;
 		}
 
-		.red {
-			background-color: red;
-		}
-
-		.green {
-			background-color: green;
-		}
-
-		.blue {
-			background-color: blue;
-		}
-
 	</style>
 	<title>VueJS</title>
 	<script src="lib/vue.js"></script>
 </head>
 <body>
 	<div id="app">
-	  <div
-	  	class="demo"
-	  	@click="attachRed = !attachRed"
-	  	:class="divClasses"></div>
 	  <div class="demo"></div>
-	  <div class="demo" :class="color"></div>
+	  <div class="demo"></div>
+	  <div class="demo"></div>
 	  <hr>
 	  <input type="text" v-model="color">
 	</div>
@@ -43,16 +28,7 @@
 		new Vue({
 			el: '#app',
 			data: {
-				attachRed: false,
-				color: 'green'
-			},
-			computed: {
-				divClasses: function() {
-					return {
-						red: this.attachRed,
-						blue: !this.attachRed
-					};
-				}
+				color: 'gray'
 			}
 		});
 	</script>
