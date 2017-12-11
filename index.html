@@ -3,18 +3,46 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content-"IE=edge">
+	<style type="text/css">
+		.demo {
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			display: inline-block;
+			margin: 10px;
+		}
+
+		.red {
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		.blue {
+			background-color: blue;
+		}
+
+	</style>
 	<title>VueJS</title>
 	<script src="lib/vue.js"></script>
 </head>
 <body>
 	<div id="app">
-	  <div class="demo"></div>
+	  <div
+	  	class="demo"
+	  	@click="attachRed = !attachRed"
+	  	:class="{red: attachRed}"></div>
 	  <div class="demo"></div>
 	  <div class="demo"></div>
 	</div>
 	<script>
 		new Vue({
-			el: '#app'
+			el: '#app',
+			data: {
+				attachRed: false
+			}
 		});
 	</script>
 </body>
