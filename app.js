@@ -6,7 +6,9 @@ new Vue({
     currentColor: -1,
     sizeClasses : ['size-50','size-100','size-150'],
     currentSize: -1,
-    userClass: ''
+    userClass: '',
+    userTypedClass: '',
+    applyRed: false
   },
   computed : {
     effectClass: function() {
