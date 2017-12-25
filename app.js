@@ -9,7 +9,9 @@ new Vue({
     userClass: '',
     userTypedClass: '',
     applyRed: false,
-    userTypedColor: ''
+    userTypedColor: '',
+    progresses: ['progress-10', 'progress-25', 'progress-40', 'progress-60', 'progress-85', 'progress-100'],
+    progressStatus: -1
   },
   computed : {
     effectClass: function() {
@@ -25,6 +27,11 @@ new Vue({
     sizeClass : function() {
 
       return this.sizeClasses[this.currentSize];
+    },
+
+    currentProgress : function() {
+
+      return this.progresses[this.progressStatus];
     }
   },
   methods: {
@@ -48,8 +55,14 @@ new Vue({
       this.currentSize = this.currentSize < this.sizeClasses.length - 1 ? this.currentSize + 1 : 0;
     },
 
+    progress : function() {
+
+      this.progressStatus = this.progressStatus < this.progresses.length - 1 ? this.progressStatus + 1 : 0;
+    },
+
     startProgress: function() {
 
+      setInterval(this.progress, 500);
     }
   }
 });

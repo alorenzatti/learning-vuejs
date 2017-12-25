@@ -35,7 +35,7 @@
 	  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
 	  <div>
 	    <button v-on:click="startProgress">Start Progress</button>
-	    <div></div>
+	    <div class="progress-bar" :class="currentProgress"></div>
 	  </div>
 	</div>
 	<script src="app.js"></script>

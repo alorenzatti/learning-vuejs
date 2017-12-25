@@ -40,3 +40,33 @@
 	width: 150px;
 	height: 150px;
 }
+
+.progress-bar {
+	height: 25px;
+	width: 0px;
+	background-color: black;
+}
+
+.progress-10 {
+	width: 10px;
+}
+
+.progress-25 {
+	width: 25px;
+}
+
+.progress-40 {
+	width: 40px;
+}
+
+.progress-60 {
+	width: 60px;
+}
+
+.progress-85 {
+	width: 85px;
+}
+
+.progress-100 {
+	width: 100px;
+}
