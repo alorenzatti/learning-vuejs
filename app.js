@@ -5,8 +5,8 @@ new Vue({
     colorClasses: ['color-red','color-green','color-blue'] ,
     currentColor: -1,
     sizeClasses : ['size-50','size-100','size-150'],
-    currentSize: -1
-
+    currentSize: -1,
+    userClass: ''
   },
   computed : {
     effectClass: function() {
