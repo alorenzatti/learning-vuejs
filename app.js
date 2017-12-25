@@ -8,7 +8,8 @@ new Vue({
     currentSize: -1,
     userClass: '',
     userTypedClass: '',
-    applyRed: false
+    applyRed: false,
+    userTypedColor: ''
   },
   computed : {
     effectClass: function() {
