@@ -28,12 +28,12 @@
             </div>
         </div>
     </section>
-    <section class="row controls" v-if="gameState == 'off'">
+    <section class="row controls" v-if="!gameOn">
         <div class="small-12 columns">
             <button id="start-game" @click="start">START NEW GAME</button>
         </div>
     </section>
-    <section class="row controls" v-if="gameState != 'off'">
+    <section class="row controls" v-if="gameOn">
         <div class="small-12 columns">
             <button id="attack" @click="attack(ATTACK_POWER)">ATTACK</button>
             <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>

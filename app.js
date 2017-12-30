@@ -5,8 +5,7 @@ new Vue({
 
   el: '#app', 
   data: { 
-    states : ['off', 'game-over'],
-    currentState : 0,
+    gameOn: false,
     playerHealth : 0,
     monsterHealth : 0,
     logs: [],
@@ -17,11 +16,6 @@ new Vue({
 
   computed : {
 
-    gameState : function() {
-
-      return this.states[this.currentState]
-    },
-    
     playerHealthBar : function() {
 
       return this.getProgressBarStyle(this.playerHealth)
@@ -37,6 +31,7 @@ new Vue({
 
     start: function() {
 
+      this.gameOn = true
       this.ATTACK_POWER = 10
       this.SPECIAL_ATTACK_POWER = this.ATTACK_POWER * 2
 
@@ -46,7 +41,6 @@ new Vue({
 
       this.playerHealth = 100
       this.monsterHealth = 100
-      this.currentState++
     },
 
     attack : function(attackPower) {
@@ -104,11 +98,12 @@ new Vue({
 
     giveUp : function() {
 
-      this.currentState = 0
       this.playerHealth = 0
       this.monsterHealth = 0
 
       this.logs = []
+
+      this.gameOn = false
     },
 
     checkGameStatus : function() {
