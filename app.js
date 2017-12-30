@@ -1,4 +1,4 @@
-new Vue({
+var vm1 = new Vue({
   el: '#app1',
   data: {
     title: 'The VueJS Instance',
@@ -25,9 +25,18 @@ new Vue({
   }
 });
 
-new Vue({
+vm1.title = "Changed!"
+
+var vm2 = new Vue({
   el: '#app2',
   data: {
     title : 'The title'
+  },
+  methods : {
+
+    change : function() {
+
+      vm1.title = 'Changed by clicking!'
+    }
   }
 });
