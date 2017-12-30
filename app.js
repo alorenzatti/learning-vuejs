@@ -151,7 +151,17 @@ new Vue({
 
     log : function(attacker, action, attacked, amount) {
 
-      this.logs.splice(0, 0, attacker + " " + action + " " + attacked + " FOR " + amount)
+      var logMessage = ""
+      if(amount == 0) {
+        
+        logMessage = attacker + " MISSED " + attacked
+
+      } else {
+
+        logMessage = attacker + " " + action + " " + attacked + " FOR " + amount
+
+      }
+      this.logs.splice(0, 0, logMessage)
     }
   }
 }); 
