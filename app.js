@@ -157,17 +157,22 @@ new Vue({
 
     log : function(attacker, action, attacked, amount) {
 
-      var logMessage = ""
+      var logMessage
+      var isPlayer = attacker == 'PLAYER'
       if(amount == 0) {
         
-        logMessage = attacker + " MISSED " + attacked
-
+        logMessage = {
+          isPlayer : isPlayer,
+          message: attacker + " MISSED " + attacked
+        }
       } else {
 
-        logMessage = attacker + " " + action + " " + attacked + " FOR " + amount
-
+        logMessage = {
+          isPlayer : isPlayer,
+          message : attacker + " " + action + " " + attacked + " FOR " + amount
+        }
       }
-      this.logs.splice(0, 0, logMessage)
+      this.logs.unshift(logMessage)
     }
   }
 }); 
