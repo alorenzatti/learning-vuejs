@@ -7,9 +7,12 @@
 	<script src="lib/vue.js"></script>
 </head>
 <body>
-	<div id="app">
-	  <p>{{ title }}</p>
+	<div id="app"> 
+	  <h1 ref="heading">{{ title }}</h1> 
+	  <button v-on:click="show">Show Paragraph</button> 
+	  <p v-if="showParagraph">This is not always visible</p> 
 	</div>
+	
 	<script src="app.js"></script>
 </body>
 </html>
