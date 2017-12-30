@@ -46,9 +46,13 @@ new Vue({
     attack : function(attackPower) {
       
       this.playerAttack(attackPower)
-      this.monsterAttack(this.ATTACK_POWER)
 
-      this.checkGameStatus()
+      if(!this.checkGameStatus()) {
+        
+        this.monsterAttack(this.ATTACK_POWER * 1.3)
+
+        this.checkGameStatus()
+      }
     },
 
     playerAttack : function(attackPower) {
@@ -66,7 +70,7 @@ new Vue({
 
       var monsterAttack = this.calculateAttack(attackPower, this.monsterHealth)
 
-      this.playerHealth -= monsterAttack
+      this.playerHealth -= monsterAttack      
       
       this.monsterHealth = this.monsterHealth < 0 ? 0 : this.monsterHealth
 
@@ -124,6 +128,8 @@ new Vue({
           this.giveUp()
         }
       }
+
+      return playerLooses || monsterLooses
     },
 
     calculateAttack : function(attackPower, health) {
