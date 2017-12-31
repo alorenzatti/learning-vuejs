@@ -1,5 +1,4 @@
 var vm1 = new Vue({
-  el: '#app1',
   data: {
     title: 'The VueJS Instance',
     showParagraph: false
@@ -26,6 +25,7 @@ var vm1 = new Vue({
   }
 });
 
+vm1.$mount('#app1')
 
 vm1.title = "Changed!"
 
