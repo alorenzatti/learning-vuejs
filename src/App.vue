@@ -1,17 +1,30 @@
 <template>
     <div class="container">
+        <app-header></app-header>
+        <hr>
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>Components</h1>
-
-            </div>
+            <app-servers></app-servers>
+            <app-server-details></app-server-details>
         </div>
+        <hr>
+        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-    export default {
+  import Header from './Header.vue'
+  import Servers from './Servers.vue'
+  import ServerDetails from './ServerDetails.vue'
+  import Footer from './Footer.vue'
+
+  export default {
+    components : {
+      'app-header' : Header,
+      'app-servers' : Servers,
+      'app-server-details' : ServerDetails,
+      'app-footer' : Footer
     }
+  }
 </script>
 
 <style>
