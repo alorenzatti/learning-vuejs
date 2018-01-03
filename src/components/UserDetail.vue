@@ -8,7 +8,14 @@
 
 <script>
 	export default {
-		props: ['name'],
+		props: {
+			name: {
+				type: String,
+				required: true,
+				default: "FOO"
+			}
+		},
+			
 		methods : {
 			switchName : function() {
 
