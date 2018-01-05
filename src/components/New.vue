@@ -17,6 +17,16 @@
 		destroyed : function() {
 
 			console.log("Destroyed")
+		},
+
+		deactivated : function() {
+			
+			console.log("Deactivated")
+		},
+
+		activated : function() {
+			
+			console.log("Activated")
 		}
 	}
 </script>
