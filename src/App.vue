@@ -1,19 +1,24 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>Components</h1>
-
+            <div class="col-xs-12">
+               <app-quote></app-quote>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-    }
+  
+  import Quote from './components/Quote.vue'
+
+  export default {
+
+    components : {
+      appQuote : Quote
+    }      
+  }
 </script>
 
 <style>
-
 </style>
