@@ -6,7 +6,7 @@
 		</div>
 		<hr>
 		<div class="title">
-			<slot name="content"></slot>
+			<slot></slot>
 		</div>
 	</div>	
 	</div>	
