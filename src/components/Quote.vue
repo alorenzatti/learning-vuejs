@@ -1,10 +1,11 @@
 <template>
 	<div>
-		<p>A random quote!</p>
+		<slot></slot>
 	</div>	
 </template>
 
 <script>
+
 </script>
 
 <style scoped>
