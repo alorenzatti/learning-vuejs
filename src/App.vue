@@ -7,9 +7,21 @@
                 <button class="btn btn-success">Load Green Template</button>
                 <button class="btn btn-danger">Load Red Template</button>
                 <hr>
-                <app-blue></app-blue>
-                <app-green></app-green>
-                <app-red></app-red>
+                <app-blue>
+                  <h1 slot="header">Simple</h1>
+                  <p slot="body">identified</p>
+                  <h6 slot="footer">slots</h6>
+                </app-blue>
+                <app-green>
+                  <h1 slot="title">A little more complex slots</h1>
+                  <div slot="contents">
+                    <p>Contents with more elements</p>
+                    <label>to be shown</label>
+                  </div>
+                </app-green>
+                <app-red>
+                  <p>Default slot</p>
+                </app-red>
             </div>
         </div>
     </div>
