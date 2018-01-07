@@ -5,7 +5,7 @@
 			<textarea class="quoteText" v-model="quoteText"></textarea>
 		</div>
 		<div class="buttonContainer">
-			<button class="addQuoteButton" @click="newQuote" :disabled="!quoteButtonEnabled">Add Quote</button>
+			<button class="addQuoteButton" @click="newQuote" :disabled="currentQuotes >= maxQuotes">Add Quote</button>
 		</div>
 	</div>
 </template>
@@ -20,6 +20,8 @@
 				this.quoteButtonEnabled = false
 			})
 		},
+
+		props : ['currentQuotes', 'maxQuotes'],
 
 		data : function() {
 			return {
@@ -46,6 +48,7 @@
 	.quoteText {
 		width: 100%;
 		border-radius: 2px;
+		height: 100px;
 	}
 
 	.addQuoteButton {
