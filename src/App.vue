@@ -10,12 +10,7 @@
                   <!-- Password -->
                   <!-- Store Data? Yes/No -->
                   <form>
-                    <label>First name:
-                      <input type="text" name="firstName" v-model.lazy="firstName" />
-                    </label>
-                    <label>Last name:
-                      <input type="text" name="lastName" v-model.lazy="lastName" />
-                    </label>
+                    <appFullName v-model="fullName"></appFullName>
                     <label>Mail:
                       <input type="text" name="mail" v-model.lazy="mail" />
                     </label>
@@ -74,11 +69,11 @@
 </template>
 
 <script>
+    import FullName from './forms/FullName.vue'
     export default {
       data : function() {
         return {
-          firstName : '',
-          lastName : '',
+          fullName : '',
           mail : '',
           password : '',
           storeInfo : 'No',
@@ -86,12 +81,8 @@
         }
       },
 
-      computed : {
-
-        fullName : function() {
-
-          return this.firstName + " " + this.lastName
-        }
+      components : {
+        appFullName : FullName
       },
 
       methods : {
