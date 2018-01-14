@@ -11,6 +11,7 @@
 
 <script>
   export default {
+    props : ['value'],
     data : function() {
       return {
         firstName : '',
@@ -18,11 +19,16 @@
       }
     },
 
+    mounted : function() {
+      this.firstName = this.value.split(" ")[0]
+      this.lastName = this.value.split(" ")[1]
+    },
+
     computed : {
       fullName : function() {
           this.$emit('input',this.firstName + " " + this.lastName)
-        }
       }
+    }
   }
 </script>
 

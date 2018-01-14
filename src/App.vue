@@ -33,6 +33,7 @@
                       v-model="storeInfo"> No
                     </label>
                     <button 
+                      type="submit"
                       class="btn btn-primary"
                       @click.prevent="submit()">Submit!
                     </button> 
@@ -73,7 +74,7 @@
     export default {
       data : function() {
         return {
-          fullName : '',
+          fullName : 'Alexandre Lorenzatti',
           mail : '',
           password : '',
           storeInfo : 'No',
