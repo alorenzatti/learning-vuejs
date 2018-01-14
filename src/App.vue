@@ -14,7 +14,7 @@
               <p v-highlight:background.delayed="'red'">Color this</p>
               <p v-highlight:background="'red'">Color this</p>
               <p v-highlight="'red'">Color this</p>
-              <p v-local-highlight.delayed="'red'">Color this</p>
+              <p v-local-highlight:background.delayed.blink="'red'">Color this</p>
             </div>
         </div>
     </div>
@@ -29,14 +29,34 @@
             if(binding.modifiers['delayed']) {
               delay = 3000
             }
-            
-            setTimeout(function() {
+            if(binding.modifiers['blink']) {
+
+              var mainColor = binding.value
+              var secondColor = 'blue'
+              var currentColor = mainColor
+
+              setTimeout(function() {
+                setInterval(function() {
+                  currentColor == secondColor ? currentColor = mainColor : currentColor = secondColor
+                  if(binding.arg == 'background') {
+                    el.style.backgroundColor = currentColor
+                  } else {
+                    el.style.color = currentColor
+                  }
+                }, 1000)
+                
+              }, delay)
+
+            } else {
+
+              setTimeout(function() {
               if(binding.arg == 'background') {
                 el.style.backgroundColor = binding.value
-              } else {
-                el.style.color = binding.value
-              }
-            }, delay)
+                } else {
+                  el.style.color = binding.value
+                }
+              }, delay)
+            }
           }
         }
       }
