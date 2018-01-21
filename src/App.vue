@@ -40,6 +40,7 @@
                 @leave="leave"
                 @after-leave="afterLeave"
                 @leave-cancelled="leaveCancelled"
+                :css="false"
               >
                 <div style="height: 100px; width: 100px; background-color: lightgreen" v-if="load"></div>
               </transition>
