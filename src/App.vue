@@ -26,11 +26,11 @@
 
 <style>
   .fade-enter {
-
+    opacity: 0;
   }
 
   .fade-enter-active {
-
+    transition: opacity 2s;
   }
 
   .fade-leave {
@@ -38,6 +38,7 @@
   }
 
   .fade-leave-active {
-
+    transition: opacity 2s;
+    opacity: 0;
   }
 </style>
