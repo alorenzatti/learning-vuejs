@@ -16,6 +16,9 @@
 
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
+                <p>Reverse with computed property: {{ reverseComputed }}</p>
+                <p>Word length with computed property: {{ wordLengthComputed }}</p>
+
 
                 <!-- Exercise 4 -->
                 <!-- Share the Computed Property rebuilding Exercise 2 via a Mixin -->
@@ -29,6 +32,16 @@
       data : function() {
         return {
           toReverse : ""
+        }
+      },
+
+      computed : {
+        reverseComputed : function() {
+          return this.toReverse.split("").reverse().join("")
+        },
+
+        wordLengthComputed : function() {
+          return this.toReverse + " (" + this.toReverse.length + ")"
         }
       },
 
