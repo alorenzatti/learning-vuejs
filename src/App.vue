@@ -6,7 +6,7 @@
                 <!-- Exercise 1) -->
                 <!-- Build a local Filter which reverses the Text it is applied on -->
                 <div>
-                  <input type="text" name="text" v-model="toReverse" /> As reversed > {{ toReverse | reverse }}
+                  <input type="text" name="text" v-model="text" /> As reversed > {{ text | reverse }}
                 </div>
 
                 <!-- Exercise 2 -->
@@ -16,8 +16,8 @@
 
                 <!-- Exercise 3 -->
                 <!-- Do the same as in Exercises 1 & 2, now with Computed Properties -->
-                <p>Reverse with computed property: {{ reverseComputed }}</p>
-                <p>Word length with computed property: {{ wordLengthComputed }}</p>
+                <p>Reverse with computed property: {{ reverse }}</p>
+                <p>Word length with computed property: {{ wordLength }}</p>
 
 
                 <!-- Exercise 4 -->
@@ -28,20 +28,15 @@
 </template>
 
 <script>
+    import {stringMixin} from './stringMixin'
+
     export default {
+      
+      mixins : [stringMixin],
+
       data : function() {
         return {
-          toReverse : ""
-        }
-      },
-
-      computed : {
-        reverseComputed : function() {
-          return this.toReverse.split("").reverse().join("")
-        },
-
-        wordLengthComputed : function() {
-          return this.toReverse + " (" + this.toReverse.length + ")"
+          text : ""
         }
       },
 
