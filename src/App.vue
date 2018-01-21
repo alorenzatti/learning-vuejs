@@ -42,7 +42,7 @@
                 @leave-cancelled="leaveCancelled"
                 :css="false"
               >
-                <div style="height: 100px; width: 100px; background-color: lightgreen" v-if="load"></div>
+                <div style="height: 100px; width: 300px; background-color: lightgreen" v-if="load"></div>
               </transition>
             </div>
         </div>
@@ -55,17 +55,28 @@
         return {
           show : false,
           load : true,
-          alertAnimation: "fade"
+          alertAnimation: "fade",
+          elementWidth : 100
         }
       },
       methods : {
         beforeEnter :  function(el) {
           console.log("before enter")
+          this.elementWidth = 100
+          el.style.width = this.elementWidth + "px"
         },
 
         enter : function(el, done) {
           console.log("enter")
-          done()
+          var round = 1
+          var interval = setInterval(() => {
+            el.style.width = (this.elementWidth + round * 10) + "px"
+            round++
+            if(round > 20) {
+              clearInterval(interval)
+              done()
+            }
+          }, 20)
         },
 
         afterEnter : function(el) {
@@ -78,12 +89,22 @@
 
         beforeLeave :  function(el) {
           console.log("before leave")
-
+          this.elementWidth = 300
+          el.style.width = this.elementWidth + "px"
         },
 
         leave : function(el, done) {
           console.log("leave")
-          done()
+          var round = 1
+
+          var interval = setInterval(() => {
+            el.style.width = (this.elementWidth - round * 10) + "px"
+            round++
+            if(round > 20) {
+              clearInterval(interval)
+              done()
+            }
+          }, 20)
         },
 
         afterLeave : function(el) {
@@ -95,7 +116,7 @@
         },
       }
     }
-</script>
+</script> 
 
 <style>
   .fade-enter {
