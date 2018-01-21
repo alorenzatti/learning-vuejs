@@ -52,6 +52,16 @@
                 @click="selectedComponent == 'app-success-alert' ? selectedComponent = 'app-danger-alert' : selectedComponent = 'app-success-alert'">
                 Toggle
               </button>
+              <hr>
+              <button class="btn btn-primary" @click="addItem">Add item</button>
+              <br><br>
+              <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  v-for="(number, index) in numbers"
+                  @click="removeItem(index)"
+                  style="cursor: pointer;">{{ number }}</li>
+              </ul>
             </div>
         </div>
     </div>
@@ -67,7 +77,8 @@
           load : true,
           alertAnimation: "fade",
           elementWidth : 100,
-          selectedComponent : "app-success-alert"
+          selectedComponent : "app-success-alert",
+          numbers : [1, 2, 3, 4, 5]
         }
       },
       components : {
@@ -75,6 +86,15 @@
         "app-success-alert" : SuccessAlert
       },
       methods : {
+        addItem : function() {
+          var pos = Math.floor(Math.random() * this.numbers.length)
+          this.numbers.splice(pos, 0, this.numbers.length + 1)
+        },
+
+        removeItem : function(index) {
+          this.numbers.splice(index, 1)
+        },
+
         beforeEnter :  function(el) {
           console.log("before enter")
           this.elementWidth = 100
