@@ -1,29 +1,47 @@
 <template>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title text-center">{{ question }}</h3>
+      <h3 class="panel-title text-center">
+        What's
+        {{ question.expression.leftNumber}}
+        {{ question.expression.operation}}
+        {{ question.expression.rightNumber}} ?
+      </h3>
     </div>
     <div class="panel-body">
-      <div class="col-xs-12 col-sm-6 text-center">
-        <button class="btn btn-primary btn-lg" style="margin: 10px"></button>
-      </div>
-      <div class="col-xs-12 col-sm-6 text-center">
-        <button class="btn btn-primary btn-lg" style="margin: 10px"></button>
-      </div>
-      <div class="col-xs-12 col-sm-6 text-center">
-        <button class="btn btn-primary btn-lg" style="margin: 10px"></button>
-      </div>
-      <div class="col-xs-12 col-sm-6 text-center">
-        <button class="btn btn-primary btn-lg" style="margin: 10px"></button>
+      <div class="text-center">
+        <button
+          class="btn btn-primary btn-lg answer"
+          @click="checkAnswer(answer)"
+          v-for="answer in question.answers">
+          {{ answer.result }}
+        </button>
       </div>
     </div>
   </div>
 </template>
-<style>
 
-</style>
 <script>
   export default{
+    props : ["question"],
 
+    methods : {
+
+      checkAnswer : function(answer) {
+        if(answer.correct) {
+          this.$emit("right-answer")
+        } else {
+          this.$emit("wrong-answer")
+        }
+      }
+    }
   }
 </script>
+
+<style scoped>
+.answer {
+  margin: 10px;
+  padding: 25px;
+}
+
+</style>
