@@ -31,7 +31,11 @@
 
       methods : {
         submit : function() {
-          console.log(this.user)
+          this.$http.post("https://alorenza-learning-vuejs.firebaseio.com/data.json", this.user)
+            .then(function(response, error) {
+              console.log(response)
+              console.log(error)
+            })
         }
       }
     }
