@@ -34,21 +34,28 @@
             username : "",
             email : ""
           },
-          users : []
+          users : [],
+          resource : {}
         }
+      },
+
+      created : function() {
+
+        this.resource = this.$resource("data.json")
       },
 
       methods : {
         submit : function() {
-          this.$http.post("", this.user)
-            .then(function(response, error) {
-              console.log(response)
-              console.log(error)
-            })
+          // this.$http.post("data.json", this.user)
+          //   .then(function(response, error) {
+          //     console.log(response)
+          //     console.log(error)
+          //   })
+          this.resource.save({}, this.user)
         },
 
         fetchData : function() {
-          this.$http.get("")
+          this.$http.get("data.json")
             .then(function(response) {
               return response.json()
             })

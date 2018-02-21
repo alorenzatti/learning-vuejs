@@ -4,7 +4,7 @@ import App from './App.vue'
 
 Vue.use(VueResource)
 
-Vue.http.options.root = "https://alorenza-learning-vuejs.firebaseio.com/data.json"
+Vue.http.options.root = "https://alorenza-learning-vuejs.firebaseio.com"
 
 Vue.http.interceptors.push(function(request, next) {
   console.log(request)
