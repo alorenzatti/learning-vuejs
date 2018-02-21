@@ -13,6 +13,8 @@
               </div>
               <button class="btn btn-primary" @click="submit">Submit</button>
               <hr>
+              <input class="form-control" type="text" v-model="node">
+              <br><br>
               <button class="btn btn-primary" @click="fetchData">Get</button>
               <br>
               <ul class="list-group">
@@ -35,7 +37,8 @@
             email : ""
           },
           users : [],
-          resource : {}
+          resource : {},
+          node : "data"
         }
       },
 
@@ -44,9 +47,12 @@
           saveAlternative : {
             method : "POST",
             url : "alternative.json"
+          },
+          getData : {
+            method : "GET"
           }
         }
-        this.resource = this.$resource("data.json", {}, customActions)
+        this.resource = this.$resource("{node}.json", {}, customActions)
       },
 
       methods : {
@@ -61,7 +67,18 @@
         },
 
         fetchData : function() {
-          this.$http.get("data.json")
+          // this.$http.get("data.json")
+          //   .then(function(response) {
+          //     return response.json()
+          //   })
+          //   .then(function(data) {
+          //     var result = []
+          //     for(var key in data) {
+          //       result.push(data[key])
+          //     }
+          //     this.users = result
+          //   })
+          this.resource.getData({node : this.node})
             .then(function(response) {
               return response.json()
             })
