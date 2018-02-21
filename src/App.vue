@@ -40,7 +40,7 @@
 
       methods : {
         submit : function() {
-          this.$http.post("https://alorenza-learning-vuejs.firebaseio.com/data.json", this.user)
+          this.$http.post("", this.user)
             .then(function(response, error) {
               console.log(response)
               console.log(error)
@@ -48,7 +48,7 @@
         },
 
         fetchData : function() {
-          this.$http.get("https://alorenza-learning-vuejs.firebaseio.com/data.json")
+          this.$http.get("")
             .then(function(response) {
               return response.json()
             })
