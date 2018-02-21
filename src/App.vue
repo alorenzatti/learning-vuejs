@@ -40,8 +40,13 @@
       },
 
       created : function() {
-
-        this.resource = this.$resource("data.json")
+        var customActions = {
+          saveAlternative : {
+            method : "POST",
+            url : "alternative.json"
+          }
+        }
+        this.resource = this.$resource("data.json", {}, customActions)
       },
 
       methods : {
@@ -51,7 +56,8 @@
           //     console.log(response)
           //     console.log(error)
           //   })
-          this.resource.save({}, this.user)
+          // this.resource.save({}, this.user)
+          this.resource.saveAlternative(this.user)
         },
 
         fetchData : function() {
