@@ -6,6 +6,14 @@ Vue.use(VueResource)
 
 Vue.http.options.root = "https://alorenza-learning-vuejs.firebaseio.com/data.json"
 
+Vue.http.interceptors.push(function(request, next) {
+  console.log(request)
+  if(request.method == "POST") {
+    request.method = "PUT"
+  }
+  next()
+})
+
 new Vue({
   el: '#app',
   render: h => h(App)
