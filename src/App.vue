@@ -12,6 +12,14 @@
                 <input class="form-control" type="text" v-model="user.email">
               </div>
               <button class="btn btn-primary" @click="submit">Submit</button>
+              <hr>
+              <button class="btn btn-primary" @click="fetchData">Get</button>
+              <br>
+              <ul class="list-group">
+                <li class="list-group-item" v-for="user in users">
+                  {{ user.username}} - {{ user.email }}
+                </li>
+              </ul>
             </div>
         </div>
     </div>
@@ -25,7 +33,8 @@
           user : {
             username : "",
             email : ""
-          }
+          },
+          users : []
         }
       },
 
@@ -35,6 +44,20 @@
             .then(function(response, error) {
               console.log(response)
               console.log(error)
+            })
+        },
+
+        fetchData : function() {
+          this.$http.get("https://alorenza-learning-vuejs.firebaseio.com/data.json")
+            .then(function(response) {
+              return response.json()
+            })
+            .then(function(data) {
+              var result = []
+              for(var key in data) {
+                result.push(data[key])
+              }
+              this.users = result
             })
         }
       }
