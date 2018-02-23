@@ -2,6 +2,7 @@
     <div>
       <h1>The User Page</h1>
       <hr>
+      <p>Loaded id: {{ id }}</p>
       <button @click="navigateToHome">Go home!</button>
     </div>
 
@@ -9,6 +10,11 @@
 
 <script>
   export default {
+    data : function() {
+      return {
+        id : this.$route.params.id
+      }
+    },
     methods : {
       navigateToHome : function() {
         this.$router.push("/")
