@@ -21,6 +21,11 @@ const router = new VueRouter({
   }
 })
 
+router.beforeEach(function(to, from, next) {
+  console.log("Global route check")
+  next()
+})
+
 new Vue({
   el: '#app',
   router: router,

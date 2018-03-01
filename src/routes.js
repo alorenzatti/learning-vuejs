@@ -16,7 +16,10 @@ export const routes = [
     "header-bottom" : Header
   }, children : [
     { path : "", component : UserStart},
-    { path : ":id", component : UserDetail},
+    { path : ":id", component : UserDetail, beforeEnter : function(to, from, next) {
+      console.log("Inside User Detail route")
+      next()
+    }},
     { path : ":id/edit", component : UserEdit, name : "userEdit"}
   ]},
   { path : "/redirect-me", redirect : { name : "home"}},

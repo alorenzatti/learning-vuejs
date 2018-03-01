@@ -22,6 +22,13 @@
           hash : "#data"
         }
       }
+    },
+    beforeRouteEnter : function(to, from, next) {
+      if(true) {
+        next()
+      } else {
+        next(false)
+      }
     }
   }
 </script>
